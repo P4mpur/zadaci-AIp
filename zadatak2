@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+	int V = 50,i=0;
+	int zbir = 0;
+	int N = 0;
+	int n[100];
+	printf("Unesite vrednost V: \n");
+	scanf_s("%d", &V);
+	while (zbir < V)
+	{
+		scanf_s("%d", &n[i]);
+		zbir = zbir + n[i];
+		i++;
+	}
+	printf("Zbir je %d, broj elementa je %d, a srednja vrednost je %d\n", zbir, i, zbir/i);
+	printf("A elementi su: ");
+	for (int j = 0; j < i; j++)
+	{
+		printf("%d, ", n[j]);
+	}
+}
