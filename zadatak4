@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() 
+{
+	int N=4;
+	int n[100];
+	int zbir = 0;
+	for (int i = 0; i < N; i++)
+	{
+		scanf_s("%d", n+ i);
+		zbir = zbir + n[i];
+	}
+	printf("elementi su: ");
+	for (int i=0;i<N;i++)
+	{
+		if ((zbir/N)>n[i])
+		{
+			printf("%d ",n[i]);
+		}
+	}
+	printf("\n zbir je: %d\n A prosecna vrednost: %d", zbir,zbir/N);
+
+}
