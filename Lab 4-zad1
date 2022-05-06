@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+
+	int n;
+	int suma = 0;
+	int proizvod = 1;
+	int a[10][10];
+	printf("Unesite n matrice: ");
+	scanf_s("%d", &n);
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			scanf_s("%d", &a[i][j]);
+		}
+	}
+
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (i + j < n)
+			{
+				suma += a[i][j];
+			}
+			if (i > j)
+			{
+				proizvod *= a[i][j];
+			}
+		}
+	}
+	printf("Suma je : %d\n Proizvod je: %d\n", suma, proizvod);
+}
