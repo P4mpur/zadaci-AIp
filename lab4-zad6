@@ -1,0 +1,79 @@
+#include <stdio.h>
+
+int main() {
+	int a[10][10] = { {1,2,3}, {4,5,6}, {7,8,9} }; // ovo je umesto da uneses ti manuelno brojeve
+	int n;
+	int b[10][10], c[10][10];
+	int d[10][10] = { {1,2,3}, {4,5,6} ,{7,8,9} };
+	scanf_s("%d", &n);
+	
+	/* Potrebno je da napravis for petlju za B C i D matrice kako bi mogo da se racuna zadatak u slucaju da se trazi takav isti,
+	ovde je ispostavljen taj deo. */
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%d", a[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			b[i][j] = a[i][j];	 // ovo pravimo istu matricu da bi bilo lakse da proverim da li mi je tacan zadatak
+		}
+		printf("\n");
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%d", b[i][j]);	 //provera  da li je to ta matrica ista, doduse trebalo bi, ali sto da ne proverimo
+		}
+		printf("\n");
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			c[i][j] = 0;
+			for (int k = 0; k < n; k++)
+			{
+				c[i][j] += a[i][k] * b[k][j];  // ovo je da se pomnoze a matrica i b matrica i da se stave u c matricu
+			}
+		}
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%d ", c[i][j]);
+		}
+		printf("\n");
+	}
+
+	for (int  i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			c[i][j] += d[i][j]; // i na kraju ovo je samo da se sabere c matrica i d matrica i to je poenta zadatka
+		}
+	}
+	printf("\n");
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			printf("%d ", c[i][j]);
+		}
+		printf("\n");
+	}
+
+}
