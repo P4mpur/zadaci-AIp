@@ -1,0 +1,42 @@
+#include <stdio.h>
+int main() {
+	int a[10][10]; // a[n][m]
+	int b[10];
+	int n, m;
+	int l, s;
+	printf("Unesite n i m komponenete matrice: \n");
+	scanf_s("%d\n", &n);
+	scanf_s("%d", &m);
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			printf("a[%d][%d]: ", i, j);
+			scanf_s("%d", &a[i][j]);
+		}
+	}
+
+	printf("Unesite l i s vrstu:\n");
+	scanf_s("%d%d",&l,&s);
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (i == s)
+			{
+				b[j] = a[i][j];
+				a[i][j] = a[l][j];
+				a[l][j] = b[j];
+			}
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			printf("%d", a[i][j]);
+		}
+		printf("\n");
+	}
+	
+}
