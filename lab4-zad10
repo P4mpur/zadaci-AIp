@@ -1,0 +1,44 @@
+#include <stdio.h>
+void main()
+{
+int A[69][69], N,j,i,k,o,g,max; //N je dimenzija, max je za kasnije kad se trazi ispod dijagonale
+printf("Unesi dimenzije matrice:\n");
+scanf("%d", &N);
+printf("Unesi pomeraj:\n");
+scanf("%d", &k);
+printf("Unesi elemente matrice:\n");
+for (i = 0;i < N;i++)
+for (j = 0;j < N;j++)
+scanf("%d", &A[i][j]);
+max = A[1][0];
+for (i = 0;i < N;i++)
+for (j = 0;j < N;j++)
+{
+
+if (i==j)
+{
+for ( g = 0; g <k ; g++) // petlja za koliko pomeraja
+{
+o = A[i][N-1];  // potrebno je pre nego sto pocne petlja da se postavi pomocni var za poslednji element
+for (int kol = N; kol > j+1; kol--)
+{
+A[i][kol] = A[i][kol-1]; // pomeranje u desno
+}
+A[i][j + 1] = o; // posto ce prva dva elementa posle glavne dijagonale da budu iste, menjamo onaj prvi u o.
+}
+}
+if (i > j)
+{
+if (max < A[i][j]) // obican uslov za max
+max = A[i][j];
+}
+}
+
+for (i = 0;i < N;i++)
+{
+for (j = 0;j < N;j++)
+printf("%2d ", A[i][j]);
+printf("\n");
+}
+printf("%d", max);
+}
